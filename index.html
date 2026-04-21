@@ -2,113 +2,284 @@
 <meta charset="utf-8">
 <title>HOT3D Aria — motion filter preview</title>
 <style>
-  body { font-family: system-ui, sans-serif; max-width: 1100px; margin: 2em auto; padding: 0 1em; color: #222; }
+  body { font-family: system-ui, sans-serif; max-width: 1250px; margin: 2em auto; padding: 0 1em; color: #222; }
   h1 { margin-bottom: 0.2em; }
-  .meta { color: #666; font-size: 0.9em; margin-bottom: 2em; }
-  .card { border: 1px solid #ddd; border-radius: 8px; padding: 1em 1.2em; margin-bottom: 1.6em; }
-  .card h2 { margin: 0 0 0.4em 0; font-size: 1.1em; }
-  .row { display: flex; gap: 1em; flex-wrap: wrap; }
-  .row > div { flex: 1 1 420px; min-width: 0; }
-  img, video { max-width: 100%; height: auto; display: block; border-radius: 4px; }
+  .meta { color: #666; font-size: 0.9em; margin-bottom: 1.6em; }
+  .card { border: 1px solid #ddd; border-radius: 8px; padding: 1em 1.2em; margin-bottom: 1.8em; }
+  .card h2 { margin: 0 0 0.2em 0; font-size: 1.08em; }
+  .card .cap { font-style: italic; color: #444; margin: 0.2em 0 0.3em 0; }
+  .card .tags { color: #666; font-size: 0.88em; margin-bottom: 0.7em; }
+  .tags b { color: #333; }
+  .row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+  .col h3 { font-size: 0.82em; color: #666; margin: 0 0 3px 0; text-transform: uppercase; letter-spacing: 0.5px; }
+  video { width: 100%; height: auto; display: block; border-radius: 4px; background: #000; }
   code { background: #f4f4f4; padding: 1px 4px; border-radius: 3px; }
-  .legend { font-size: 0.88em; color: #555; margin-top: 0.6em; }
-  .legend b { color: #333; }
-  .k { color: #c00; }
+  .pill { display: inline-block; background: #eee; color: #333; padding: 1px 7px; margin-right: 4px; border-radius: 10px; font-size: 0.82em; }
 </style>
 
 <h1>HOT3D Aria — motion-filter preview</h1>
 <p class="meta">
   Per-object motion detection on HOT3D-Clips (Aria train split).
-  Threshold = <b>0.008 m/frame</b>, min-run = <b>15 frames</b>,
+  Threshold = <b>0.005 m/frame</b>, min-run = <b>15 frames</b>,
   close-kernel = <b>3 frames</b>.
-  Detected <b>1986</b> sub-clips across <b>1136</b> of
+  Detected <b>2534</b> sub-clips across <b>1279</b> of
   <b>1415</b> source clips.
 </p>
 
 <p class="meta">
-  Each card shows one source clip. <b>Left:</b> median-speed curve per object block,
-  with the threshold dashed and kept motion windows shaded <span class="k">red</span>.
-  <b>Right:</b> the source video with 2D track points overlaid only while the object
-  is inside a kept window. Colors match obj0, obj1, … across panels.
+  Each card: <b>left</b> = original 150-frame source RGB (red banner + bottom bar
+  mark the detected motion window); <b>middle</b> = the trimmed sub-clip; <b>right</b>
+  = the same sub-clip with moving-object 2D track points drawn (short decaying
+  trails, 120 points subsampled from the subject object's 2,000).
 </p>
 
 <div class="card">
-  <h2>clip-002130</h2>
+  <h2>clip-001850_obj2_s065_e094</h2>
+  <p class="cap">&ldquo;type on the keyboard&rdquo;</p>
+  <p class="tags">
+    <b>Source:</b> <code>clip-001850</code> &nbsp;
+    <b>Moving:</b> obj2 &nbsp;
+    <b>Window:</b> [65, 94]  (30 frames, 1.0s) &nbsp;
+    <b>Objects in scene:</b> <span class="pill">cellphone</span> <span class="pill">holder_black</span> <span class="pill">keyboard</span> <span class="pill">mouse</span> <span class="pill">whiteboard_eraser</span> <span class="pill">whiteboard_marker</span>
+  </p>
   <div class="row">
-    <div><img src="plots/clip-002130_speed.png" alt="speed curves for clip-002130"></div>
-    <div>
-      <video controls muted playsinline preload="metadata">
-        <source src="overlays/clip-002130_overlay.mp4" type="video/mp4">
+    <div class="col">
+      <h3>Original RGB</h3>
+      <video controls muted loop playsinline preload="metadata">
+        <source src="src/clip-001850_obj2_s065_e094.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="col">
+      <h3>Sub-clip (trimmed)</h3>
+      <video controls muted loop playsinline preload="metadata">
+        <source src="sub/clip-001850_obj2_s065_e094.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="col">
+      <h3>Sub-clip + 2D tracks</h3>
+      <video controls muted loop playsinline preload="metadata">
+        <source src="trk/clip-001850_obj2_s065_e094.mp4" type="video/mp4">
       </video>
     </div>
   </div>
-  <div class="legend">obj0: static &middot; obj1: static &middot; <b>obj2</b>: moving [0,23], [32,49], [53,68], [74,98], [106,149] (max 0.018 m/f) &middot; obj3: skipped (never visible) &middot; obj4: skipped (never visible) &middot; obj5: static</div>
 </div>
 
 <div class="card">
-  <h2>clip-002207</h2>
+  <h2>clip-001852_obj3_s018_e067</h2>
+  <p class="cap">&ldquo;move the whiteboard eraser on the whiteboard&rdquo;</p>
+  <p class="tags">
+    <b>Source:</b> <code>clip-001852</code> &nbsp;
+    <b>Moving:</b> obj3 &nbsp;
+    <b>Window:</b> [18, 67]  (50 frames, 1.67s) &nbsp;
+    <b>Objects in scene:</b> <span class="pill">cellphone</span> <span class="pill">holder_black</span> <span class="pill">keyboard</span> <span class="pill">mouse</span> <span class="pill">whiteboard_eraser</span> <span class="pill">whiteboard_marker</span>
+  </p>
   <div class="row">
-    <div><img src="plots/clip-002207_speed.png" alt="speed curves for clip-002207"></div>
-    <div>
-      <video controls muted playsinline preload="metadata">
-        <source src="overlays/clip-002207_overlay.mp4" type="video/mp4">
+    <div class="col">
+      <h3>Original RGB</h3>
+      <video controls muted loop playsinline preload="metadata">
+        <source src="src/clip-001852_obj3_s018_e067.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="col">
+      <h3>Sub-clip (trimmed)</h3>
+      <video controls muted loop playsinline preload="metadata">
+        <source src="sub/clip-001852_obj3_s018_e067.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="col">
+      <h3>Sub-clip + 2D tracks</h3>
+      <video controls muted loop playsinline preload="metadata">
+        <source src="trk/clip-001852_obj3_s018_e067.mp4" type="video/mp4">
       </video>
     </div>
   </div>
-  <div class="legend"><b>obj0</b>: moving [20,49], [60,75], [91,108], [118,133] (max 0.030 m/f) &middot; obj1: static &middot; <b>obj2</b>: moving [76,91], [97,111], [119,133] (max 0.025 m/f) &middot; obj3: static &middot; obj4: static &middot; obj5: static</div>
 </div>
 
 <div class="card">
-  <h2>clip-002372</h2>
+  <h2>clip-001853_obj0_s079_e100</h2>
+  <p class="cap">&ldquo;put the whiteboard eraser on the table&rdquo;</p>
+  <p class="tags">
+    <b>Source:</b> <code>clip-001853</code> &nbsp;
+    <b>Moving:</b> obj0 &nbsp;
+    <b>Window:</b> [79, 100]  (22 frames, 0.73s) &nbsp;
+    <b>Objects in scene:</b> <span class="pill">cellphone</span> <span class="pill">holder_black</span> <span class="pill">keyboard</span> <span class="pill">mouse</span> <span class="pill">whiteboard_eraser</span> <span class="pill">whiteboard_marker</span>
+  </p>
   <div class="row">
-    <div><img src="plots/clip-002372_speed.png" alt="speed curves for clip-002372"></div>
-    <div>
-      <video controls muted playsinline preload="metadata">
-        <source src="overlays/clip-002372_overlay.mp4" type="video/mp4">
+    <div class="col">
+      <h3>Original RGB</h3>
+      <video controls muted loop playsinline preload="metadata">
+        <source src="src/clip-001853_obj0_s079_e100.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="col">
+      <h3>Sub-clip (trimmed)</h3>
+      <video controls muted loop playsinline preload="metadata">
+        <source src="sub/clip-001853_obj0_s079_e100.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="col">
+      <h3>Sub-clip + 2D tracks</h3>
+      <video controls muted loop playsinline preload="metadata">
+        <source src="trk/clip-001853_obj0_s079_e100.mp4" type="video/mp4">
       </video>
     </div>
   </div>
-  <div class="legend">obj0: static &middot; <b>obj1</b>: moving [133,149] (max 0.017 m/f) &middot; <b>obj2</b>: moving [6,30], [101,119], [132,149] (max 0.033 m/f) &middot; <b>obj3</b>: moving [6,31], [49,91] (max 0.037 m/f) &middot; obj4: static &middot; obj5: static</div>
 </div>
 
 <div class="card">
-  <h2>clip-002374</h2>
+  <h2>clip-001856_obj1_s058_e112</h2>
+  <p class="cap">&ldquo;use cellphone to take photo of whiteboard&rdquo;</p>
+  <p class="tags">
+    <b>Source:</b> <code>clip-001856</code> &nbsp;
+    <b>Moving:</b> obj1 &nbsp;
+    <b>Window:</b> [58, 112]  (55 frames, 1.83s) &nbsp;
+    <b>Objects in scene:</b> <span class="pill">cellphone</span> <span class="pill">holder_black</span> <span class="pill">keyboard</span> <span class="pill">mouse</span> <span class="pill">whiteboard_eraser</span> <span class="pill">whiteboard_marker</span>
+  </p>
   <div class="row">
-    <div><img src="plots/clip-002374_speed.png" alt="speed curves for clip-002374"></div>
-    <div>
-      <video controls muted playsinline preload="metadata">
-        <source src="overlays/clip-002374_overlay.mp4" type="video/mp4">
+    <div class="col">
+      <h3>Original RGB</h3>
+      <video controls muted loop playsinline preload="metadata">
+        <source src="src/clip-001856_obj1_s058_e112.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="col">
+      <h3>Sub-clip (trimmed)</h3>
+      <video controls muted loop playsinline preload="metadata">
+        <source src="sub/clip-001856_obj1_s058_e112.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="col">
+      <h3>Sub-clip + 2D tracks</h3>
+      <video controls muted loop playsinline preload="metadata">
+        <source src="trk/clip-001856_obj1_s058_e112.mp4" type="video/mp4">
       </video>
     </div>
   </div>
-  <div class="legend">obj0: static &middot; obj1: static &middot; <b>obj2</b>: moving [13,42], [51,90] (max 0.025 m/f) &middot; obj3: static &middot; <b>obj4</b>: moving [67,98], [102,117] (max 0.048 m/f) &middot; obj5: static</div>
 </div>
 
 <div class="card">
-  <h2>clip-002853</h2>
+  <h2>clip-001857_obj5_s107_e143</h2>
+  <p class="cap">&ldquo;move cellphone to the right, move cup to the right, move marker to the left&rdquo;</p>
+  <p class="tags">
+    <b>Source:</b> <code>clip-001857</code> &nbsp;
+    <b>Moving:</b> obj5 &nbsp;
+    <b>Window:</b> [107, 143]  (37 frames, 1.23s) &nbsp;
+    <b>Objects in scene:</b> <span class="pill">cellphone</span> <span class="pill">holder_black</span> <span class="pill">keyboard</span> <span class="pill">mouse</span> <span class="pill">whiteboard_eraser</span> <span class="pill">whiteboard_marker</span>
+  </p>
   <div class="row">
-    <div><img src="plots/clip-002853_speed.png" alt="speed curves for clip-002853"></div>
-    <div>
-      <video controls muted playsinline preload="metadata">
-        <source src="overlays/clip-002853_overlay.mp4" type="video/mp4">
+    <div class="col">
+      <h3>Original RGB</h3>
+      <video controls muted loop playsinline preload="metadata">
+        <source src="src/clip-001857_obj5_s107_e143.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="col">
+      <h3>Sub-clip (trimmed)</h3>
+      <video controls muted loop playsinline preload="metadata">
+        <source src="sub/clip-001857_obj5_s107_e143.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="col">
+      <h3>Sub-clip + 2D tracks</h3>
+      <video controls muted loop playsinline preload="metadata">
+        <source src="trk/clip-001857_obj5_s107_e143.mp4" type="video/mp4">
       </video>
     </div>
   </div>
-  <div class="legend">obj0: static &middot; <b>obj1</b>: moving [88,118], [125,149] (max 0.035 m/f) &middot; obj2: static &middot; obj3: skipped (never visible) &middot; <b>obj4</b>: moving [10,24], [63,81], [103,133] (max 0.034 m/f) &middot; obj5: static</div>
 </div>
 
 <div class="card">
-  <h2>clip-002995</h2>
+  <h2>clip-001860_obj0_s040_e111</h2>
+  <p class="cap">&ldquo;take the green post-it note from the table&rdquo;</p>
+  <p class="tags">
+    <b>Source:</b> <code>clip-001860</code> &nbsp;
+    <b>Moving:</b> obj0 &nbsp;
+    <b>Window:</b> [40, 111]  (72 frames, 2.4s) &nbsp;
+    <b>Objects in scene:</b> <span class="pill">aria_small</span> <span class="pill">food_vegetables</span> <span class="pill">puzzle_toy</span>
+  </p>
   <div class="row">
-    <div><img src="plots/clip-002995_speed.png" alt="speed curves for clip-002995"></div>
-    <div>
-      <video controls muted playsinline preload="metadata">
-        <source src="overlays/clip-002995_overlay.mp4" type="video/mp4">
+    <div class="col">
+      <h3>Original RGB</h3>
+      <video controls muted loop playsinline preload="metadata">
+        <source src="src/clip-001860_obj0_s040_e111.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="col">
+      <h3>Sub-clip (trimmed)</h3>
+      <video controls muted loop playsinline preload="metadata">
+        <source src="sub/clip-001860_obj0_s040_e111.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="col">
+      <h3>Sub-clip + 2D tracks</h3>
+      <video controls muted loop playsinline preload="metadata">
+        <source src="trk/clip-001860_obj0_s040_e111.mp4" type="video/mp4">
       </video>
     </div>
   </div>
-  <div class="legend"><b>obj0</b>: moving [27,55] (max 0.035 m/f) &middot; <b>obj1</b>: moving [38,66], [88,133] (max 0.044 m/f) &middot; <b>obj2</b>: moving [108,141] (max 0.041 m/f) &middot; obj3: static &middot; obj4: static &middot; obj5: static</div>
+</div>
+
+<div class="card">
+  <h2>clip-001863_obj2_s113_e149</h2>
+  <p class="cap">&ldquo;put down the black eyeglasses on the shelf&rdquo;</p>
+  <p class="tags">
+    <b>Source:</b> <code>clip-001863</code> &nbsp;
+    <b>Moving:</b> obj2 &nbsp;
+    <b>Window:</b> [113, 149]  (37 frames, 1.23s) &nbsp;
+    <b>Objects in scene:</b> <span class="pill">aria_small</span> <span class="pill">food_vegetables</span> <span class="pill">puzzle_toy</span>
+  </p>
+  <div class="row">
+    <div class="col">
+      <h3>Original RGB</h3>
+      <video controls muted loop playsinline preload="metadata">
+        <source src="src/clip-001863_obj2_s113_e149.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="col">
+      <h3>Sub-clip (trimmed)</h3>
+      <video controls muted loop playsinline preload="metadata">
+        <source src="sub/clip-001863_obj2_s113_e149.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="col">
+      <h3>Sub-clip + 2D tracks</h3>
+      <video controls muted loop playsinline preload="metadata">
+        <source src="trk/clip-001863_obj2_s113_e149.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>clip-001864_obj1_s013_e043</h2>
+  <p class="cap">&ldquo;put down the black eyeglasses on the table&rdquo;</p>
+  <p class="tags">
+    <b>Source:</b> <code>clip-001864</code> &nbsp;
+    <b>Moving:</b> obj1 &nbsp;
+    <b>Window:</b> [13, 43]  (31 frames, 1.03s) &nbsp;
+    <b>Objects in scene:</b> <span class="pill">aria_small</span> <span class="pill">food_vegetables</span> <span class="pill">puzzle_toy</span>
+  </p>
+  <div class="row">
+    <div class="col">
+      <h3>Original RGB</h3>
+      <video controls muted loop playsinline preload="metadata">
+        <source src="src/clip-001864_obj1_s013_e043.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="col">
+      <h3>Sub-clip (trimmed)</h3>
+      <video controls muted loop playsinline preload="metadata">
+        <source src="sub/clip-001864_obj1_s013_e043.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="col">
+      <h3>Sub-clip + 2D tracks</h3>
+      <video controls muted loop playsinline preload="metadata">
+        <source src="trk/clip-001864_obj1_s013_e043.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
 </div>
 
 
-<p class="meta">Generated from <code>pilot_viz/</code> in the companion repository.</p>
+<p class="meta">Motion detection + sub-clip builder scripts are in <code>hot3d_repo/tmp/filter/</code>.</p>
