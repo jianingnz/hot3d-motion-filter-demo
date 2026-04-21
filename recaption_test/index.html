@@ -1,0 +1,260 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Recaption comparison (20 clips)</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 1100px; margin: 2em auto; padding: 0 1em; color: #222; }
+  .row { border: 1px solid #ddd; border-radius: 6px; padding: 0.7em 0.9em; margin-bottom: 1em;
+          display: grid; grid-template-columns: 320px 1fr; gap: 1em; align-items: start; }
+  .row h3 { margin: 0 0 0.3em 0; font-size: 0.9em; color: #333; }
+  video { width: 100%; height: auto; display: block; border-radius: 4px; background: #000; }
+  .cap { margin: 0.2em 0; }
+  .cap b { color: #333; }
+  .src { color: #888; font-style: italic; }
+  .new { color: #0a0; }
+  .meta { color: #888; font-size: 0.8em; }
+  code { background: #f4f4f4; padding: 1px 4px; border-radius: 3px; font-size: 0.85em; }
+</style>
+<h1>Recaption comparison (20 clips)</h1>
+<p class="meta">Red dot = centroid of the subject object's visible 2D track
+points (per frame). Source caption = original full-source-clip caption.
+New caption = Molmo2-8B output given the dot-marked sub-clip.</p>
+<div class="row">
+  <div><video autoplay muted loop playsinline preload="metadata">
+    <source src="mark/clip-001870_obj1_s134_e149_mark.mp4" type="video/mp4">
+  </video></div>
+  <div>
+    <h3><code>clip-001870_obj1_s134_e149</code></h3>
+    <p class="cap"><b>src:</b> <span class="src">&ldquo;take the wooden spoon from the table&rdquo;</span></p>
+    <p class="cap"><b>new:</b> <span class="new">&ldquo;pick up the wooden spoon from the table&rdquo;</span></p>
+    <p class="meta">obj1 &middot; frames [134,149] (16f) &middot;
+       mark frames: 16 / 16 &middot; objects: bottle_mustard, bowl, coffee_pot, food_vegetables, food_waffles, spoon_wooden</p>
+  </div>
+</div>
+<div class="row">
+  <div><video autoplay muted loop playsinline preload="metadata">
+    <source src="mark/clip-001896_obj5_s135_e149_mark.mp4" type="video/mp4">
+  </video></div>
+  <div>
+    <h3><code>clip-001896_obj5_s135_e149</code></h3>
+    <p class="cap"><b>src:</b> <span class="src">&ldquo;put the black cup on the table&rdquo;</span></p>
+    <p class="cap"><b>new:</b> <span class="new">&ldquo;pick up the black mouse from the table&rdquo;</span></p>
+    <p class="meta">obj5 &middot; frames [135,149] (15f) &middot;
+       mark frames: 15 / 15 &middot; objects: aria_small, holder_black, keyboard, mouse, mug_patterned, vase</p>
+  </div>
+</div>
+<div class="row">
+  <div><video autoplay muted loop playsinline preload="metadata">
+    <source src="mark/clip-001938_obj1_s066_e149_mark.mp4" type="video/mp4">
+  </video></div>
+  <div>
+    <h3><code>clip-001938_obj1_s066_e149</code></h3>
+    <p class="cap"><b>src:</b> <span class="src">&ldquo;put down the orange juice carton on the table&rdquo;</span></p>
+    <p class="cap"><b>new:</b> <span class="new">&ldquo;examine the carton of milk&rdquo;</span></p>
+    <p class="meta">obj1 &middot; frames [66,149] (84f) &middot;
+       mark frames: 84 / 84 &middot; objects: bottle_mustard, carton_milk, carton_oj, dvd_remote, whiteboard_eraser, whiteboard_marker</p>
+  </div>
+</div>
+<div class="row">
+  <div><video autoplay muted loop playsinline preload="metadata">
+    <source src="mark/clip-002052_obj5_s111_e126_mark.mp4" type="video/mp4">
+  </video></div>
+  <div>
+    <h3><code>clip-002052_obj5_s111_e126</code></h3>
+    <p class="cap"><b>src:</b> <span class="src">&ldquo;move the yellow mustard bottle to the left&rdquo;</span></p>
+    <p class="cap"><b>new:</b> <span class="new">&ldquo;pick up the white square coaster from the table&rdquo;</span></p>
+    <p class="meta">obj5 &middot; frames [111,126] (16f) &middot;
+       mark frames: 16 / 16 &middot; objects: bottle_mustard, bowl, coffee_pot, food_vegetables, food_waffles, spoon_wooden</p>
+  </div>
+</div>
+<div class="row">
+  <div><video autoplay muted loop playsinline preload="metadata">
+    <source src="mark/clip-002185_obj1_s041_e084_mark.mp4" type="video/mp4">
+  </video></div>
+  <div>
+    <h3><code>clip-002185_obj1_s041_e084</code></h3>
+    <p class="cap"><b>src:</b> <span class="src">&ldquo;stir the food in the bowl with the potato masher&rdquo;</span></p>
+    <p class="cap"><b>new:</b> <span class="new">&ldquo;tap the metal potato masher against the wooden bowl&rdquo;</span></p>
+    <p class="meta">obj1 &middot; frames [41,84] (44f) &middot;
+       mark frames: 44 / 44 &middot; objects: bottle_bbq, bottle_ranch, bowl, can_soup, can_tomato_sauce, potato_masher</p>
+  </div>
+</div>
+<div class="row">
+  <div><video autoplay muted loop playsinline preload="metadata">
+    <source src="mark/clip-002236_obj4_s124_e149_mark.mp4" type="video/mp4">
+  </video></div>
+  <div>
+    <h3><code>clip-002236_obj4_s124_e149</code></h3>
+    <p class="cap"><b>src:</b> <span class="src">&ldquo;pour liquid from the flask into the box&rdquo;</span></p>
+    <p class="cap"><b>new:</b> <span class="new">&ldquo;close the lid of the flask&rdquo;</span></p>
+    <p class="meta">obj4 &middot; frames [124,149] (26f) &middot;
+       mark frames: 26 / 26 &middot; objects: can_parmesan, can_tomato_sauce, carton_milk, carton_oj, flask, holder_gray</p>
+  </div>
+</div>
+<div class="row">
+  <div><video autoplay muted loop playsinline preload="metadata">
+    <source src="mark/clip-002500_obj1_s087_e122_mark.mp4" type="video/mp4">
+  </video></div>
+  <div>
+    <h3><code>clip-002500_obj1_s087_e122</code></h3>
+    <p class="cap"><b>src:</b> <span class="src">&ldquo;put the yellow puzzle toy on the table, take the white ceramic mug from the table, pour liquid from the white ceramic mug into the white ceramic vase&rdquo;</span></p>
+    <p class="cap"><b>new:</b> <span class="new">&ldquo;pick up the white ceramic mug from the table&rdquo;</span></p>
+    <p class="meta">obj1 &middot; frames [87,122] (36f) &middot;
+       mark frames: 36 / 36 &middot; objects: birdhouse_toy, dino_toy, dumbbell_5lb, mug_white, puzzle_toy, vase</p>
+  </div>
+</div>
+<div class="row">
+  <div><video autoplay muted loop playsinline preload="metadata">
+    <source src="mark/clip-002505_obj2_s058_e087_mark.mp4" type="video/mp4">
+  </video></div>
+  <div>
+    <h3><code>clip-002505_obj2_s058_e087</code></h3>
+    <p class="cap"><b>src:</b> <span class="src">&ldquo;put the red and white puzzle toy on the table&rdquo;</span></p>
+    <p class="cap"><b>new:</b> <span class="new">&ldquo;take the cellphone from the table&rdquo;</span></p>
+    <p class="meta">obj2 &middot; frames [58,87] (30f) &middot;
+       mark frames: 30 / 30 &middot; objects: cellphone, coffee_pot, mug_white, puzzle_toy, whiteboard_eraser, whiteboard_marker</p>
+  </div>
+</div>
+<div class="row">
+  <div><video autoplay muted loop playsinline preload="metadata">
+    <source src="mark/clip-002555_obj2_s075_e089_mark.mp4" type="video/mp4">
+  </video></div>
+  <div>
+    <h3><code>clip-002555_obj2_s075_e089</code></h3>
+    <p class="cap"><b>src:</b> <span class="src">&ldquo;turn the white ceramic pitcher upside down&rdquo;</span></p>
+    <p class="cap"><b>new:</b> <span class="new">&ldquo;turn the white ceramic vase upside down over the left hand&rdquo;</span></p>
+    <p class="meta">obj2 &middot; frames [75,89] (15f) &middot;
+       mark frames: 15 / 15 &middot; objects: aria_small, holder_black, mug_patterned, vase, whiteboard_eraser, whiteboard_marker</p>
+  </div>
+</div>
+<div class="row">
+  <div><video autoplay muted loop playsinline preload="metadata">
+    <source src="mark/clip-002574_obj1_s067_e121_mark.mp4" type="video/mp4">
+  </video></div>
+  <div>
+    <h3><code>clip-002574_obj1_s067_e121</code></h3>
+    <p class="cap"><b>src:</b> <span class="src">&ldquo;pour liquid from the yellow mustard bottle into the cup&rdquo;</span></p>
+    <p class="cap"><b>new:</b> <span class="new">&ldquo;put down the yellow plastic bottle on the table&rdquo;</span></p>
+    <p class="meta">obj1 &middot; frames [67,121] (55f) &middot;
+       mark frames: 55 / 55 &middot; objects: bottle_mustard, cellphone, dino_toy, flask, food_waffles, holder_black</p>
+  </div>
+</div>
+<div class="row">
+  <div><video autoplay muted loop playsinline preload="metadata">
+    <source src="mark/clip-002644_obj4_s040_e077_mark.mp4" type="video/mp4">
+  </video></div>
+  <div>
+    <h3><code>clip-002644_obj4_s040_e077</code></h3>
+    <p class="cap"><b>src:</b> <span class="src">&ldquo;play with the yellow magic cube&rdquo;</span></p>
+    <p class="cap"><b>new:</b> <span class="new">&ldquo;turn the yellow and white puzzle toy in the hand&rdquo;</span></p>
+    <p class="meta">obj4 &middot; frames [40,77] (38f) &middot;
+       mark frames: 38 / 38 &middot; objects: cellphone, coffee_pot, keyboard, mouse, mug_white, puzzle_toy</p>
+  </div>
+</div>
+<div class="row">
+  <div><video autoplay muted loop playsinline preload="metadata">
+    <source src="mark/clip-002681_obj1_s023_e042_mark.mp4" type="video/mp4">
+  </video></div>
+  <div>
+    <h3><code>clip-002681_obj1_s023_e042</code></h3>
+    <p class="cap"><b>src:</b> <span class="src">&ldquo;pour liquid from the white ceramic pitcher into the white ceramic cup&rdquo;</span></p>
+    <p class="cap"><b>new:</b> <span class="new">&ldquo;pour water into the white ceramic mug from the white ceramic pitcher&rdquo;</span></p>
+    <p class="meta">obj1 &middot; frames [23,42] (20f) &middot;
+       mark frames: 20 / 20 &middot; objects: birdhouse_toy, dino_toy, dumbbell_5lb, mug_white, puzzle_toy, vase</p>
+  </div>
+</div>
+<div class="row">
+  <div><video autoplay muted loop playsinline preload="metadata">
+    <source src="mark/clip-002682_obj3_s076_e095_mark.mp4" type="video/mp4">
+  </video></div>
+  <div>
+    <h3><code>clip-002682_obj3_s076_e095</code></h3>
+    <p class="cap"><b>src:</b> <span class="src">&ldquo;put down the white ceramic mug on the table&rdquo;</span></p>
+    <p class="cap"><b>new:</b> <span class="new">&ldquo;move the white mug on the table&rdquo;</span></p>
+    <p class="meta">obj3 &middot; frames [76,95] (20f) &middot;
+       mark frames: 20 / 20 &middot; objects: birdhouse_toy, dino_toy, dumbbell_5lb, mug_white, puzzle_toy, vase</p>
+  </div>
+</div>
+<div class="row">
+  <div><video autoplay muted loop playsinline preload="metadata">
+    <source src="mark/clip-002697_obj3_s062_e124_mark.mp4" type="video/mp4">
+  </video></div>
+  <div>
+    <h3><code>clip-002697_obj3_s062_e124</code></h3>
+    <p class="cap"><b>src:</b> <span class="src">&ldquo;pour liquid from the yellow mustard bottle into the bowl&rdquo;</span></p>
+    <p class="cap"><b>new:</b> <span class="new">&ldquo;pour the yellow liquid from the bottle into the bowl&rdquo;</span></p>
+    <p class="meta">obj3 &middot; frames [62,124] (63f) &middot;
+       mark frames: 63 / 63 &middot; objects: bottle_mustard, bowl, coffee_pot, food_vegetables, food_waffles, spoon_wooden</p>
+  </div>
+</div>
+<div class="row">
+  <div><video autoplay muted loop playsinline preload="metadata">
+    <source src="mark/clip-002822_obj0_s084_e120_mark.mp4" type="video/mp4">
+  </video></div>
+  <div>
+    <h3><code>clip-002822_obj0_s084_e120</code></h3>
+    <p class="cap"><b>src:</b> <span class="src">&ldquo;move the colorful puzzle toy to the right&rdquo;</span></p>
+    <p class="cap"><b>new:</b> <span class="new">&ldquo;pick up the black mug from the table&rdquo;</span></p>
+    <p class="meta">obj0 &middot; frames [84,120] (37f) &middot;
+       mark frames: 37 / 37 &middot; objects: cellphone, coffee_pot, keyboard, mouse, mug_white, puzzle_toy</p>
+  </div>
+</div>
+<div class="row">
+  <div><video autoplay muted loop playsinline preload="metadata">
+    <source src="mark/clip-002934_obj2_s019_e034_mark.mp4" type="video/mp4">
+  </video></div>
+  <div>
+    <h3><code>clip-002934_obj2_s019_e034</code></h3>
+    <p class="cap"><b>src:</b> <span class="src">&ldquo;put the red carton of milk on the table&rdquo;</span></p>
+    <p class="cap"><b>new:</b> <span class="new">&ldquo;put down the red and white milk carton on the table&rdquo;</span></p>
+    <p class="meta">obj2 &middot; frames [19,34] (16f) &middot;
+       mark frames: 13 / 16 &middot; objects: can_parmesan, can_tomato_sauce, carton_milk, carton_oj, flask, holder_gray</p>
+  </div>
+</div>
+<div class="row">
+  <div><video autoplay muted loop playsinline preload="metadata">
+    <source src="mark/clip-002987_obj3_s081_e106_mark.mp4" type="video/mp4">
+  </video></div>
+  <div>
+    <h3><code>clip-002987_obj3_s081_e106</code></h3>
+    <p class="cap"><b>src:</b> <span class="src">&ldquo;pour liquid from the yellow mustard bottle into the bowl&rdquo;</span></p>
+    <p class="cap"><b>new:</b> <span class="new">&ldquo;examine the yellow plastic bottle&rdquo;</span></p>
+    <p class="meta">obj3 &middot; frames [81,106] (26f) &middot;
+       mark frames: 26 / 26 &middot; objects: bottle_mustard, bowl, coffee_pot, food_vegetables, food_waffles, spoon_wooden</p>
+  </div>
+</div>
+<div class="row">
+  <div><video autoplay muted loop playsinline preload="metadata">
+    <source src="mark/clip-003107_obj2_s002_e149_mark.mp4" type="video/mp4">
+  </video></div>
+  <div>
+    <h3><code>clip-003107_obj2_s002_e149</code></h3>
+    <p class="cap"><b>src:</b> <span class="src">&ldquo;stir the vegetables with the red spatula on the plate&rdquo;</span></p>
+    <p class="cap"><b>new:</b> <span class="new">&ldquo;tap spatula on plate&rdquo;</span></p>
+    <p class="meta">obj2 &middot; frames [2,149] (148f) &middot;
+       mark frames: 148 / 148 &middot; objects: bottle_ranch, can_parmesan, carton_oj, plate_bamboo, potato_masher, spatula_red</p>
+  </div>
+</div>
+<div class="row">
+  <div><video autoplay muted loop playsinline preload="metadata">
+    <source src="mark/clip-003147_obj4_s000_e110_mark.mp4" type="video/mp4">
+  </video></div>
+  <div>
+    <h3><code>clip-003147_obj4_s000_e110</code></h3>
+    <p class="cap"><b>src:</b> <span class="src">&ldquo;shake the can of soup&rdquo;</span></p>
+    <p class="cap"><b>new:</b> <span class="new">&ldquo;shake the can of soup&rdquo;</span></p>
+    <p class="meta">obj4 &middot; frames [0,110] (111f) &middot;
+       mark frames: 111 / 111 &middot; objects: bowl, can_soup, carton_milk, plate_bamboo, spatula_red, spoon_wooden</p>
+  </div>
+</div>
+<div class="row">
+  <div><video autoplay muted loop playsinline preload="metadata">
+    <source src="mark/clip-003211_obj4_s000_e016_mark.mp4" type="video/mp4">
+  </video></div>
+  <div>
+    <h3><code>clip-003211_obj4_s000_e016</code></h3>
+    <p class="cap"><b>src:</b> <span class="src">&ldquo;put the white rectangular object on the table&rdquo;</span></p>
+    <p class="cap"><b>new:</b> <span class="new">&ldquo;pick up the whiteboard eraser from the table&rdquo;</span></p>
+    <p class="meta">obj4 &middot; frames [0,16] (17f) &middot;
+       mark frames: 17 / 17 &middot; objects: aria_small, holder_black, mug_patterned, vase, whiteboard_eraser, whiteboard_marker</p>
+  </div>
+</div>
