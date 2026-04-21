@@ -1,0 +1,114 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>HOT3D Aria — motion filter preview</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 1100px; margin: 2em auto; padding: 0 1em; color: #222; }
+  h1 { margin-bottom: 0.2em; }
+  .meta { color: #666; font-size: 0.9em; margin-bottom: 2em; }
+  .card { border: 1px solid #ddd; border-radius: 8px; padding: 1em 1.2em; margin-bottom: 1.6em; }
+  .card h2 { margin: 0 0 0.4em 0; font-size: 1.1em; }
+  .row { display: flex; gap: 1em; flex-wrap: wrap; }
+  .row > div { flex: 1 1 420px; min-width: 0; }
+  img, video { max-width: 100%; height: auto; display: block; border-radius: 4px; }
+  code { background: #f4f4f4; padding: 1px 4px; border-radius: 3px; }
+  .legend { font-size: 0.88em; color: #555; margin-top: 0.6em; }
+  .legend b { color: #333; }
+  .k { color: #c00; }
+</style>
+
+<h1>HOT3D Aria — motion-filter preview</h1>
+<p class="meta">
+  Per-object motion detection on HOT3D-Clips (Aria train split).
+  Threshold = <b>0.008 m/frame</b>, min-run = <b>15 frames</b>,
+  close-kernel = <b>3 frames</b>.
+  Detected <b>1986</b> sub-clips across <b>1136</b> of
+  <b>1415</b> source clips.
+</p>
+
+<p class="meta">
+  Each card shows one source clip. <b>Left:</b> median-speed curve per object block,
+  with the threshold dashed and kept motion windows shaded <span class="k">red</span>.
+  <b>Right:</b> the source video with 2D track points overlaid only while the object
+  is inside a kept window. Colors match obj0, obj1, … across panels.
+</p>
+
+<div class="card">
+  <h2>clip-002130</h2>
+  <div class="row">
+    <div><img src="plots/clip-002130_speed.png" alt="speed curves for clip-002130"></div>
+    <div>
+      <video controls muted playsinline preload="metadata">
+        <source src="overlays/clip-002130_overlay.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+  <div class="legend">obj0: static &middot; obj1: static &middot; <b>obj2</b>: moving [0,23], [32,49], [53,68], [74,98], [106,149] (max 0.018 m/f) &middot; obj3: skipped (never visible) &middot; obj4: skipped (never visible) &middot; obj5: static</div>
+</div>
+
+<div class="card">
+  <h2>clip-002207</h2>
+  <div class="row">
+    <div><img src="plots/clip-002207_speed.png" alt="speed curves for clip-002207"></div>
+    <div>
+      <video controls muted playsinline preload="metadata">
+        <source src="overlays/clip-002207_overlay.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+  <div class="legend"><b>obj0</b>: moving [20,49], [60,75], [91,108], [118,133] (max 0.030 m/f) &middot; obj1: static &middot; <b>obj2</b>: moving [76,91], [97,111], [119,133] (max 0.025 m/f) &middot; obj3: static &middot; obj4: static &middot; obj5: static</div>
+</div>
+
+<div class="card">
+  <h2>clip-002372</h2>
+  <div class="row">
+    <div><img src="plots/clip-002372_speed.png" alt="speed curves for clip-002372"></div>
+    <div>
+      <video controls muted playsinline preload="metadata">
+        <source src="overlays/clip-002372_overlay.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+  <div class="legend">obj0: static &middot; <b>obj1</b>: moving [133,149] (max 0.017 m/f) &middot; <b>obj2</b>: moving [6,30], [101,119], [132,149] (max 0.033 m/f) &middot; <b>obj3</b>: moving [6,31], [49,91] (max 0.037 m/f) &middot; obj4: static &middot; obj5: static</div>
+</div>
+
+<div class="card">
+  <h2>clip-002374</h2>
+  <div class="row">
+    <div><img src="plots/clip-002374_speed.png" alt="speed curves for clip-002374"></div>
+    <div>
+      <video controls muted playsinline preload="metadata">
+        <source src="overlays/clip-002374_overlay.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+  <div class="legend">obj0: static &middot; obj1: static &middot; <b>obj2</b>: moving [13,42], [51,90] (max 0.025 m/f) &middot; obj3: static &middot; <b>obj4</b>: moving [67,98], [102,117] (max 0.048 m/f) &middot; obj5: static</div>
+</div>
+
+<div class="card">
+  <h2>clip-002853</h2>
+  <div class="row">
+    <div><img src="plots/clip-002853_speed.png" alt="speed curves for clip-002853"></div>
+    <div>
+      <video controls muted playsinline preload="metadata">
+        <source src="overlays/clip-002853_overlay.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+  <div class="legend">obj0: static &middot; <b>obj1</b>: moving [88,118], [125,149] (max 0.035 m/f) &middot; obj2: static &middot; obj3: skipped (never visible) &middot; <b>obj4</b>: moving [10,24], [63,81], [103,133] (max 0.034 m/f) &middot; obj5: static</div>
+</div>
+
+<div class="card">
+  <h2>clip-002995</h2>
+  <div class="row">
+    <div><img src="plots/clip-002995_speed.png" alt="speed curves for clip-002995"></div>
+    <div>
+      <video controls muted playsinline preload="metadata">
+        <source src="overlays/clip-002995_overlay.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+  <div class="legend"><b>obj0</b>: moving [27,55] (max 0.035 m/f) &middot; <b>obj1</b>: moving [38,66], [88,133] (max 0.044 m/f) &middot; <b>obj2</b>: moving [108,141] (max 0.041 m/f) &middot; obj3: static &middot; obj4: static &middot; obj5: static</div>
+</div>
+
+
+<p class="meta">Generated from <code>pilot_viz/</code> in the companion repository.</p>
